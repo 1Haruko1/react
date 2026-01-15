@@ -19,7 +19,7 @@ function App() {
   // Состояние счётчика и ввода
   const [count, setCount] = useState(0);
   const [inputValue, setInputValue] = useState('');
-  
+
   // Состояние темы
   const [theme, setTheme] = useState('dark');
 
@@ -30,17 +30,32 @@ function App() {
   ]);
   const [filteredItems, setFilteredItems] = useState(items);
 
-  // Эффект:обновление заголовка
+  // Состояние для времени
+  const [time, setTime] = useState(new Date());
+
+  // Эффект: обновление заголовка
   useEffect(() => {
     console.log(`Изменения в твоей сраке: ${count}`);
     document.title = `Хуев в жопе: ${count}`;
   }, [count]);
 
-  
   useEffect(() => {
     console.log('Компонент смонтирован');
     return () => console.log('Компонент размонтирован');
   }, []);
+
+  // Обновление времени каждую секунду
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+  const formattedTime = time.toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
 
   // Добавление товара
   const addItem = useCallback(() => {
@@ -81,6 +96,7 @@ function App() {
     <div className={`app ${theme}`}>
       <header className="header">
         <h1>Ебать в рот этот реакт</h1>
+        <div className="clock">{formattedTime}</div> {/* Часы с секундами */}
         <button
           onClick={toggleTheme}
           className="theme-toggle"
@@ -91,14 +107,14 @@ function App() {
       </header>
 
       <main>
-        {/*Счётчик*/}
+        {/* Счётчик */}
         <section className="counter">
           <h2>Хуев в жопе: {count}</h2>
           <button onClick={() => setCount(count + 1)}>Больше</button>
           <button onClick={() => setCount(count - 1)}>Меньше</button>
         </section>
 
-        {/*Поиск*/}
+        {/* Поиск */}
         <section className="search">
           <input
             type="text"
@@ -108,14 +124,14 @@ function App() {
           />
         </section>
 
-        {/*Список товаров*/}
+        {/* Список товаров */}
         <section className="items">
           <h2>Безделушки ({filteredItems.length})</h2>
           <p>Смерть в нищете: {totalPrice} ₽</p>
           <ExpensiveList items={filteredItems} onItemClick={handleItemClick} />
         </section>
 
-        {/*Кнопка добавления*/}
+        {/* Кнопка добавления */}
         <button onClick={addItem}>Добавить хуйню</button>
       </main>
     </div>
