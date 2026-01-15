@@ -90,7 +90,7 @@ h1 {
   width: 100%;
 }
 
-/* Кнопки с градиентом */
+/*Кнопки с градиентом*/
 button {
   padding: 13px 26px;
   margin: 6px 12px;
@@ -117,7 +117,7 @@ button:active {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Поле ввода с закруглениями */
+/*Поле ввода с закруглениями*/
 input {
   width: 100%;
   padding: 14px 18px;
@@ -136,7 +136,7 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.3);
 }
 
-/* Карточки с закруглёнными углами */
+/*Карточки с закруглёнными углами*/
 .counter, .search, .items {
   margin-bottom: 24px;
   background-color: var(--bg-card);
@@ -149,14 +149,14 @@ input:focus {
   box-sizing: border-box;
 }
 
-/* Эффект наведения на карточки */
+/*Эффект наведения на карточки*/
 :is(.counter, .search, .items):hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
   background-color: var(--bg-secondary);
 }
 
-/* === НОВЫЙ ДИЗАЙН ЧАСОВ === */
+/*ДИЗАЙН ЧАСОВ*/
 .clock {
   display: flex;
   justify-content: center;
