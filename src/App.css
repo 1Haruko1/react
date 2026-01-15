@@ -1,38 +1,204 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  /* Базовые переменные (тёмная тема по умолчанию) */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-card: #272727;
+  --text-primary: #5b3adf;
+  --text-secondary: #b0b0b0;
+  --accent-primary: #7c4dff;
+  --accent-hover: #966cff;
+  --border-color: #333333;
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 8px 20px rgba(124, 77, 255, 0.2);
+  --transition-fast: all 0.25s ease;
+  --border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Тёмная тема */
+.app.dark {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-card: #272727;
+  --text-primary: #e0e0e0;
+  --text-secondary: #111010;
+  --accent-primary: #7c4dff;
+  --accent-hover: #966cff;
+  --border-color: #333333;
 }
 
-.App-header {
-  background-color: #282c34;
+/* Светлая тема — текст становится тёмным */
+.app.light {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #212121;     /* Тёмный основной текст */
+  --text-secondary: #0d0c0c;   /* Тёмный вторичный текст */
+  --accent-primary: #4f46e5;
+  --accent-hover: #6366f1;
+  --border-color: #e5e5e5;
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 20px rgba(79, 70, 229, 0.15);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  line-height: 1.55;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.app {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  background-color: var(--bg-primary);
+  transition: background-color var(--transition-fast);
+}
+
+/* Шапка */
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 36px;
+}
+
+/* Градиентный заголовок */
+h1 {
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 36px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  background: linear-gradient(45deg, var(--accent-primary), var(--accent-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  width: 100%;
+}
+
+/* Закруглённые кнопки с градиентом */
+button {
+  padding: 13px 26px;
+  margin: 6px 12px;
+  background: linear-gradient(45deg, var(--accent-primary), var(--accent-hover));
   color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  transition: var(--transition-fast);
+  box-shadow: 0 3px 8px rgba(124, 77, 255, 0.25);
+  font-size: 14px;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(124, 77, 255, 0.4);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Поле ввода с закруглениями */
+input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 16px;
+  outline: none;
+  transition: var(--transition-fast);
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.3);
+}
+
+/* Карточки с закруглёнными углами */
+.counter, .search, .items {
+  margin-bottom: 24px;
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-fast);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Эффект наведения на карточки */
+:is(.counter, .search, .items):hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  background-color: var(--bg-secondary);
+}
+
+/* Стили для списка элементов */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.list li {
+  padding: 18px 22px;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-primary);
+  margin-bottom: 14px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition-fast);
+  background-color: var(--bg-secondary);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.list li:hover {
+  background-color: #333333;
+  transform: translateX(6px);
+  border-left-color: var(--accent-hover);
+  box-shadow: 0 4px 12px rgba(124, 77, 255, 0.15);
+}
+
+/* Кнопка переключения темы */
+.theme-toggle {
+  padding: 10px 16px;
+  background: var(--bg-secondary);
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
