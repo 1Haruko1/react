@@ -30,13 +30,13 @@ function App() {
   ]);
   const [filteredItems, setFilteredItems] = useState(items);
 
-  // Эффект: обновление заголовка
+  // Эффект:обновление заголовка
   useEffect(() => {
     console.log(`Изменения в твоей сраке: ${count}`);
     document.title = `Хуев в жопе: ${count}`;
   }, [count]);
 
-  // Эффект: монтаж/размонтирование
+  
   useEffect(() => {
     console.log('Компонент смонтирован');
     return () => console.log('Компонент размонтирован');
@@ -91,14 +91,14 @@ function App() {
       </header>
 
       <main>
-        {/* Счётчик */}
+        {/*Счётчик*/}
         <section className="counter">
           <h2>Хуев в жопе: {count}</h2>
           <button onClick={() => setCount(count + 1)}>Больше</button>
           <button onClick={() => setCount(count - 1)}>Меньше</button>
         </section>
 
-        {/* Поиск */}
+        {/*Поиск*/}
         <section className="search">
           <input
             type="text"
@@ -108,14 +108,14 @@ function App() {
           />
         </section>
 
-        {/* Список товаров */}
+        {/*Список товаров*/}
         <section className="items">
           <h2>Безделушки ({filteredItems.length})</h2>
           <p>Смерть в нищете: {totalPrice} ₽</p>
           <ExpensiveList items={filteredItems} onItemClick={handleItemClick} />
         </section>
 
-        {/* Кнопка добавления */}
+        {/*Кнопка добавления*/}
         <button onClick={addItem}>Добавить хуйню</button>
       </main>
     </div>

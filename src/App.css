@@ -5,7 +5,7 @@
 }
 
 :root {
-  /* Базовые переменные (тёмная тема по умолчанию) */
+  /*Базовые переменные (тёмная тема)*/
   --bg-primary: #121212;
   --bg-secondary: #1e1e1e;
   --bg-card: #272727;
@@ -20,7 +20,7 @@
   --border-radius: 10px;
 }
 
-/* Тёмная тема */
+/*Тёмная тема*/
 .app.dark {
   --bg-primary: #121212;
   --bg-secondary: #1e1e1e;
@@ -32,13 +32,13 @@
   --border-color: #333333;
 }
 
-/* Светлая тема — текст становится тёмным */
+/*Светлая тема*/
 .app.light {
   --bg-primary: #f5f5f5;
   --bg-secondary: #ffffff;
   --bg-card: #ffffff;
-  --text-primary: #212121;     /* Тёмный основной текст */
-  --text-secondary: #0d0c0c;   /* Тёмный вторичный текст */
+  --text-primary: #212121;     
+  --text-secondary: #0d0c0c; 
   --accent-primary: #4f46e5;
   --accent-hover: #6366f1;
   --border-color: #e5e5e5;
@@ -67,7 +67,7 @@ body {
   transition: background-color var(--transition-fast);
 }
 
-/* Шапка */
+/*Шапка*/
 .header {
   display: flex;
   justify-content: space-between;
@@ -75,7 +75,7 @@ body {
   margin-bottom: 36px;
 }
 
-/* Градиентный заголовок */
+/*заголовок*/
 h1 {
   color: var(--text-primary);
   text-align: center;
@@ -90,7 +90,7 @@ h1 {
   width: 100%;
 }
 
-/* Закруглённые кнопки с градиентом */
+/*кнопки с градиентом*/
 button {
   padding: 13px 26px;
   margin: 6px 12px;
@@ -117,7 +117,7 @@ button:active {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Поле ввода с закруглениями */
+/*Поле ввода с закруглениями*/
 input {
   width: 100%;
   padding: 14px 18px;
@@ -136,7 +136,7 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.3);
 }
 
-/* Карточки с закруглёнными углами */
+/*Карточки с закруглёнными углами*/
 .counter, .search, .items {
   margin-bottom: 24px;
   background-color: var(--bg-card);
@@ -149,14 +149,14 @@ input:focus {
   box-sizing: border-box;
 }
 
-/* Эффект наведения на карточки */
+/*Эффект наведения на карточки*/
 :is(.counter, .search, .items):hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
   background-color: var(--bg-secondary);
 }
 
-/* Стили для списка элементов */
+/*Стили для списка элементов*/
 .list {
   list-style: none;
   padding: 0;
@@ -187,7 +187,7 @@ input:focus {
   box-shadow: 0 4px 12px rgba(124, 77, 255, 0.15);
 }
 
-/* Кнопка переключения темы */
+/*Кнопка переключения темы*/
 .theme-toggle {
   padding: 10px 16px;
   background: var(--bg-secondary);
